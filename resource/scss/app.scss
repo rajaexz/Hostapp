@@ -6,7 +6,9 @@
     -webkit-font-smoothing: antialiased;
      color: $dark;
 }
-
+em{
+  font-weight: 600;
+}
 
 .nav-bar {
     height: 80px;

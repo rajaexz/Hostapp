@@ -6,6 +6,10 @@
   color: #232323;
 }
 
+em {
+  font-weight: 600;
+}
+
 .nav-bar {
   height: 80px;
   background: #fff;
