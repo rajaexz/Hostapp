@@ -25,19 +25,10 @@
       this.classList.toggle('active');
     });
   });
-})(jQuery);
+})(jQuery); // all lisening event
 
-$("#price_chackbox").change(function () {
-  if (this.checked) {
-    $('#yearlly').css('display', 'none');
-    $('#mothlly').css('display', 'flex'); // $('.afterinput').addClass('text-success');
-    // $('.beforeinput').removeClass('text-success');
-  } else {
-    $('#yearlly').css('display', 'flex');
-    $('#mothlly').css('display', 'none'); // $('.afterinput').removeClass('text-success');
-    // $('.beforeinput').addClass('text-success');
-  }
-});
+
+console.log('working ');
 
 /***/ }),
 
