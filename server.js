@@ -20,6 +20,8 @@ useFindAndModify:true
 }).catch(err => handleError(err)).then(res =>{
     console.log("connected")
 })
+//midlewere 
+
 //session 
 app.use(session({
     secret: process.env.COOKIE_KEY,
@@ -35,6 +37,12 @@ app.use(flash());
 
 
 app.use(express.static('public'));
+app.use(express.json())
+//Globle middlewere 
+app.use((req,res,next)=>{
+    res.locals.session = req.session;
+    next();
+})
 app.use(expressLayouts);
 app.set('views' , path.join(__dirname,"./resource/views"))
 app.set('view engine', 'ejs');

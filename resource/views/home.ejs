@@ -8,10 +8,7 @@
               <p class="mb-0"><i class="mr-2 fas fa-bell rounded-full text-blue-400" ></i> <span class="font-weight-bold font-bold"></span>50% Discount </span> <em class="text-white font-semibold">first annual purchase</em></p>
           </div>
             <h1 class="font-bold text-6xl md:text-white leading-snug">Fly Your Dream With Hostkites .</h1>
-        
-              <div class="typing-demo leading-snug">
-                Best Hosting Start Now..!
-              </div>
+       
   
             <button class=" text-center my-10 rounded-full flex items-center shadow bg-blue-500 px-6 py-4 w-44 text-white hover:bg-blue-400">
               Default
@@ -250,9 +247,15 @@
                                 <path d="M7 11H17V13H7zM4 7H20V9H4zM10 15H14V17H10z" />
                             </svg>
                         </a>
-                        <a href="/cart" class="rounded-2xl  border-2 border-yellow-400 bg-yellow-300 mx-4 p-2 w-24">
-                          <i class="fas fa-shopping-bag"></i>
-                          Cart</a>
+                        <div class="relative" >
+                          <span id="cardCounter" class="absolute text-2xl text-white font-bold  right-6 bottom-6 bg-yellow-500 rounded-full px-3" >
+                          <%=session.cart ? session.cart.totalQty :" "%>
+                          </span>
+                          <a href="/cart" class="rounded-2xl  border-2 border-yellow-400 bg-yellow-300 mx-4 p-2 w-24">
+                            <i class="fas fa-shopping-bag"></i>
+                            Cart</a>  
+                        </div>
+                       
 
                     </div>
                     
@@ -270,20 +273,15 @@
                   <p class="pt-1 text-gray-900">&#8377;<%- data.price %></p>
               </div>
               <div class="pt-3 flex items-center justify-between">
-                <button class="add-to-cart text-center  rounded-full flex justify-center shadow bg-blue-500 px-2 py-1 w-20 text-white hover:bg-blue-400" type="submit">
+                <button data-temp='<%= JSON.stringify(data)%>'class="add-to-cart text-center outline-none rounded-full flex justify-center shadow bg-blue-500 px-2 py-1 w-20 text-white hover:bg-blue-400 " type="submit">
                   Click 
               </button>
             </div>
             </div>
   
-  
-
 
             <% }); %>
       
-           
-        
-
 
             </div>
 
@@ -292,7 +290,10 @@
   </div>
 
 </section>
+<!--Map section regon-->
+<section class="py-16  h-screen relative" >
 
+</section>
 
 
 
