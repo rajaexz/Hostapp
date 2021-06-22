@@ -2,14 +2,14 @@
 import Typed from 'typed.js';
 import axios from 'axios'
 import Noty from 'noty';
-
+import flash from 'express-flash';
 
 var cart_shop = document.querySelectorAll('.add-to-cart');
 var cart_Couter= document.getElementById('cardCounter');
 
 function postData (btnData){
             axios.post('/update-cart',btnData).then(res=>{
-                    console.log(res)
+                    console.log(res, " this is a session data ")
                     cart_Couter.innerHTML= res.data.totalQty;
                     new Noty({
                     
@@ -30,13 +30,6 @@ cart_shop.forEach((btn)=>{
     let btnData = JSON.parse(btn.dataset.temp);
        postData(btnData);
   })
-});
-
-//typed
-
-var typed = new Typed('.hero_text', {
-  strings: ["First sentence.", "Second sentence."],
-  typeSpeed: 30
 });
 
 
@@ -67,7 +60,23 @@ var typed = new Typed('.hero_text', {
   });
 })(jQuery);
 
+var typed2 = new Typed('.text_demo', {
+  strings: ['Strat now <strong style="color:#00006A;">Sheared Hosting </strong>',' Strat now <strong style="color:#3B82F6;">Cloud Hosting &#128515;</strong>', 'Strat now <strong style="color="#FFA531">VPS hosting</strong>'],
+  typeSpeed: 60,
+  backSpeed: 60,
+  backDelay: 500,
+  startDelay: 1000,
+  fadeOut: true,
 
-
-
-
+  loop: true
+});
+var typed2 = new Typed('.domain_text', {
+  strings: [" ","best Domain Name","Hostkites.com"],
+  typeSpeed: 55,
+    backSpeed: 50,
+    attr: 'placeholder',
+    bindInputFocusEvents: true,
+    loop: true,
+  cursorChar:true
+});
+ 

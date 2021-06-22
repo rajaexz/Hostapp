@@ -9,11 +9,12 @@
           </div>
             <h1 class="font-bold text-6xl md:text-white leading-snug">Fly Your Dream With Hostkites .</h1>
        
-  
+          <span class="text-white">
+            <h1 class="text-2xl taja">Best Web Hosting : <span class="text-2xl text_demo"></span></h1>
+          </span>
             <button class=" text-center my-10 rounded-full flex items-center shadow bg-blue-500 px-6 py-4 w-44 text-white hover:bg-blue-400">
               Default
-        
-          
+      
               <i class="fas fa-angle-double-right px-5 text-white"></i>
           </button>
           </div>
@@ -36,7 +37,7 @@
            <form>
             <div class="p-8">
               <div class="bg-white flex items-center rounded-full shadow-xl">
-                <input class="rounded-l-full w-full py-4 px-6 text-gray-700 leading-tight focus:outline-none" id="search" type="text" placeholder="Search">
+                <input class="rounded-l-full w-full py-4 px-6 text-gray-700 leading-tight focus:outline-none domain_text" id="search" type="text" placeholder="Search">
                 
                 <div class="p-4 flex ">
                   <select name="domainType" class="form-control border-none outline-none"><option value="com" selected>.com</option><option value="net">.net</option><option value="io">.io</option><option value="info">.info</option><option value="store">.store</option><option value="store">.org</option></select>
@@ -216,6 +217,14 @@
 </div>
   </div>
 </section>
+<!--optional tags -->
+<section class='bg-black h-96'>
+<div class="container mx-auto">
+ 
+</div>
+</section>
+
+
 <!-- price section end-->
 <section class="py-16">
 
@@ -225,8 +234,6 @@
       <h1 class="subheading text-center font-bold text-5xl mt-8 tracking-wide relative my-20">Bay Some Template</h1>
       <p> Bay some usefull template on your Website it's very userfull own  making website . All template is Custom or It has Some Importent feature like. <em>Paymentgaet</em>, <em>login form</em> , <em>domain Craker </em><strong> No copy </strong> </p>
     </div>
-
-
 
   
 
@@ -249,7 +256,7 @@
                         </a>
                         <div class="relative" >
                           <span id="cardCounter" class="absolute text-2xl text-white font-bold  right-6 bottom-6 bg-yellow-500 rounded-full px-3" >
-                          <%=session.cart ? session.cart.totalQty :" "%>
+                          <%= session.cart ? session.cart.totalQty : ``%>
                           </span>
                           <a href="/cart" class="rounded-2xl  border-2 border-yellow-400 bg-yellow-300 mx-4 p-2 w-24">
                             <i class="fas fa-shopping-bag"></i>
@@ -266,7 +273,7 @@
               
               <div class="w-full md:w-1/3 xl:w-1/4 p-6 mb-10 flex flex-col ">
                 <a href="#" >
-                    <img class="hover:grow hover:shadow-lg  rounded-lg" src=<%- data.image %>>
+                    <img class="hover:grow hover:shadow-lg  rounded-lg" src="<%- data.image %>">
                 </a>
                 <div class="pt-3 flex items-center justify-between">
                   <p class=""><%- data.name %></p>
@@ -278,7 +285,6 @@
               </button>
             </div>
             </div>
-  
 
             <% }); %>
       
@@ -291,8 +297,13 @@
 
 </section>
 <!--Map section regon-->
-<section class="py-16  h-screen relative" >
-
+<section class="  h-screen overflow-hidden" >
+  <div class="container mx-auto ">
+    <div class="text_serction flex justify-center items-center flex-col md:w-1/2 mx-auto text-center mb-28">
+      <h1 class="subheading text-center font-bold text-5xl mt-8 tracking-wide relative my-20">Region in over the world</h1>
+      </div>
+      <img src="img/hero/img-map-dark.svg" class='h-auto w-1/2 mx-auto'> 
+  </div>
 </section>
 
 

@@ -9,8 +9,6 @@ const cartController = require('../app/http/controller/customar/cartcontroller')
           // auth register
      app.get('/login',authController().loginRoutes)
 
-     app.get('/orderempty',cartController().emptyRautes)
-
      app.get('/cart',cartController().cartRoutes);
 
      

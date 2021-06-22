@@ -2,16 +2,14 @@
 
 function factoryCart(){
     return {
-        emptyRautes(req,res){  //routes is key store empty function  
-            res.render('customar/empty');
-                } ,
+      
                 cartRoutes(req,res){  //routes is key store empty function  
                     res.render("customar/cart");
                         },
 
                         updateRoutes(req, res) {
                             // let cart = {
-                            //     items: {
+                            //    nameid=> items: {
                             //         pizzaId: { item: pizzaObject, qty:0 },
                             //         pizzaId: { item: pizzaObject, qty:0 },
                             //         pizzaId: { item: pizzaObject, qty:0 },
@@ -38,7 +36,7 @@ function factoryCart(){
                                 cart.totalQty = cart.totalQty + 1
                                 cart.totalPrice = cart.totalPrice + req.body.price
                             } else {
-                                cart.items[req.body._id].qty = cart.items[req.body._id].qty + 1
+                                cart.items[req.body._id].qty = cart.items[req.body._id].qty + 1 
                                 cart.totalQty = cart.totalQty + 1
                                 cart.totalPrice =  cart.totalPrice + req.body.price
                             }
