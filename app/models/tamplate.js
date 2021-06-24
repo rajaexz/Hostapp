@@ -16,4 +16,4 @@ const mongoose = require('mongoose');
 
         
 
-        module.exports =   mongoose.model('Template',templateSchema);
+        module.exports =   mongoose.model('Template',templateSchema); // modules is all ways singular keyName just like here ..i put name a Tempalte , 

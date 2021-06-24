@@ -6,6 +6,7 @@ const cartController = require('../app/http/controller/customar/cartcontroller')
     app.get("/",homeController().homeRautes);
   //auth login
      app.get('/register',authController().registerRautes)
+     app.post('/register',authController().registerPost)
           // auth register
      app.get('/login',authController().loginRoutes)
 

@@ -8,8 +8,10 @@ const express= require('express'),
   mongoose = require('mongoose'),
 session =require('express-session'),
  flash = require('express-flash'),
- MongoStore= require('connect-mongo');
+ MongoStore= require('connect-mongo'),
+ passport= require('passport');
  
+
 
 //mongoose 
 mongoose.connect(process.env.MCURL, 
@@ -17,9 +19,8 @@ mongoose.connect(process.env.MCURL,
 useCreateIndex: true,
 useUnifiedTopology:true,
 useFindAndModify:true
-}).catch(err => handleError(err)).then(res =>{
-    console.log("connected")
-})
+}).catch(err => handleError(err))
+
 //midlewere 
 
 //session 
@@ -34,10 +35,10 @@ app.use(session({
      })
   }))
 app.use(flash());
-
-
 app.use(express.static('public'));
-app.use(express.json())
+app.use(express.json());
+app.use(express.urlencoded({extended:true}))
+ 
 //Globle middlewere 
 app.use((req,res,next)=>{
     res.locals.session = req.session;
@@ -47,16 +48,22 @@ app.use(expressLayouts);
 app.set('views' , path.join(__dirname,"./resource/views"))
 app.set('view engine', 'ejs');
 
+//passport config
+const passportInit = require('./app/config/passport');
+passportInit(passport);
+// passprot 
+app.use(passport.initialize());
+app.use(passport.session());
+
+
 var connection = mongoose.connection;
-
-
 connection.once('open',()=>{
     console.log("database is conceted");
 }).catch(err=> handleError(err));
 
 
-require('./routes/web')(app); // funxtion calling system in module
 
+require('./routes/web')(app); // function calling system in module
 
 app.listen( PORT ,()=>{
     console.log('server is working ',`${PORT}`);
