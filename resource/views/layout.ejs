@@ -14,76 +14,32 @@
 <link href="/css/output.css"rel="stylesheet">
 </head>
 <body>
+<header class=" flex flex-wrap flex-row justify-between items-center md:space-x-4 bg-blue-50 px-6 py-6 ">
+<a class="block " href="/">
+  <img class="h-8" src="/img/logo/logo4.png" alt="hostkites-logo"  title="hostkites.com web host">
+</a>
+  <button id=" hamburrger" class="inline-block md:hidden w-8 h-8 bg-gray-200 text-gray-600 p-1">
+    <svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
+  </button>
+<nav id="navsection" class=" md:relative top-16 left-0 md:top-0 z-20 flex flex-col md:flex-row md:space-x-6 font-semibold w-full md:w-auto bg-white shadow-md rounded-lg md:rounded-none md:shadow-none md:bg-transparent p-6 pt-0 md:p-0 ">
+  <a href="/" class="block py-1 text-indigo-600 hover:underline">Home</a>
+  <a href="#" class="block py-1 text-gray-600 hover:underline">About us</a>
+  <a href="#" class="block py-1 text-gray-600 hover:underline">Services</a>
+  <a href="#" class="block py-1 text-gray-600 hover:underline">Blog</a>
+  <a href="#" class="block py-1 text-gray-600 hover:underline">Contact</a>
 
-
-  <button onclick="topFunction()" id="myBtn" title="Go to top"> <i class="fas fa-hand-point-up"></i></button>
-
-    <section class="nav-bar pt-1 " >
-        <div class="nav-container">
-   <div class="wraper">
-    <div class="brand ">
-      <a href="https://hostkites.com/"><img src="/img/logo/logo4.png"></a>
-    </div>
-  
-    <nav>
-
-
-      <div class="nav-mobile"><a id="nav-toggle" href="#!"><span></span></a></div>
-      <ul class="nav-list">
-
-
-        <li>
-          <a href="#">Resaller</a>
-        </li>
-
-        <li>
-          <a href="#!">Dmain</a>
-     <ul class="nav-dropdown">
-            <li>
-              <a href="#">Photoshop</a>
-            </li>
-            <li>
-              <a href="#">Illustrator</a>
-            </li>
-            <li>
-              <a href="#">InDesign</a>
-            </li>
-          </ul>
-        </li>
-
-
-
-        <li>
-          <a href="#">Web Development</a>
-          <ul class="nav-dropdown">
-            <li>
-              <a href="#">HTML</a>
-            </li>
-            <li>
-              <a href="#">CSS</a>
-            </li>
-            <li>
-              <a href="#">JavaScript</a>
-            </li>
-          </ul>
-        </li>
-
-        <li>
-          <a href="#">About</a>
-        </li>
-        <li>
-          <a href="#" class="rounded-2xl border-solid border-2 border-yellow-400 card">
-            <i class="fas fa-shopping-bag"></i>
-            Card</a>
-        </li>
-      </ul>
-    </nav>
-   </div>
-        </div>
-      </section>
-
-
-
+<div id="navsection" class=" md:relative top-16 left-0 md:top-0 z-20 flex flex-col md:flex-row md:space-x-6 font-semibold w-full md:w-auto bg-white shadow-md rounded-lg md:rounded-none md:shadow-none md:bg-transparent p-6 pt-0 md:p-0 ">
+   <% if(user){%>
+   <form id="logout" action="/logout" method="POST">
+    <a  onclick="document.getElementById('logout').submit()"  href="#"class="block py-1 text-gray-600 hover:underline">Logout</a>
+   </form>
+   <% } else {%>
+    <a href="/register" class="block py-1 text-gray-600 hover:underline">Register</a>
+    <a href="/login" class="block py-1 text-gray-600 hover:underline">Login</a>
+    <%}%>
+</div>
+</nav>
+</header>
 
     <%- body %>
 
@@ -115,12 +71,7 @@
             <a href="#" class="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
                 Optimizing for Production
             </a>
-            <a href="#" class="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
-                Browser Support
-            </a>
-            <a href="#" class="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
-                IntelliSense
-            </a>
+         
         </div>
 
         <!-- Col-2 -->
@@ -143,15 +94,8 @@
             <a href="#" class="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
                 Dark Mode
             </a>
-            <a href="#" class="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
-                Adding Base Styles
-            </a>
-            <a href="#" class="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
-                Extracting Components
-            </a>
-            <a href="#" class="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
-                Adding New Utilities
-            </a>
+         
+       
         </div>
 
         <!-- Col-3 -->
@@ -174,15 +118,7 @@
             <a href="#" class="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
                 Customizing Colors
             </a>
-            <a href="#" class="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
-                Customizing Spacing
-            </a>
-            <a href="#" class="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
-                Configuring Variants
-            </a>
-            <a href="#" class="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
-                Plugins
-            </a>
+          
         </div>
 
         <!-- Col-3 -->

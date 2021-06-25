@@ -34,6 +34,15 @@ app.use(session({
         ttl:  1000 * 60 * 60 * 24
      })
   }))
+  
+  //passport config
+const passportInit = require('./app/config/passport');
+passportInit(passport);
+// passprot 
+app.use(passport.initialize());
+app.use(passport.session());
+
+
 app.use(flash());
 app.use(express.static('public'));
 app.use(express.json());
@@ -42,18 +51,12 @@ app.use(express.urlencoded({extended:true}))
 //Globle middlewere 
 app.use((req,res,next)=>{
     res.locals.session = req.session;
+    res.locals.user= req.user;
     next();
 })
 app.use(expressLayouts);
 app.set('views' , path.join(__dirname,"./resource/views"))
 app.set('view engine', 'ejs');
-
-//passport config
-const passportInit = require('./app/config/passport');
-passportInit(passport);
-// passprot 
-app.use(passport.initialize());
-app.use(passport.session());
 
 
 var connection = mongoose.connection;

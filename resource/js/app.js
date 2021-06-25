@@ -2,7 +2,6 @@
 import Typed from 'typed.js';
 import axios from 'axios'
 import Noty from 'noty';
-import flash from 'express-flash';
 
 var cart_shop = document.querySelectorAll('.add-to-cart');
 var cart_Couter= document.getElementById('cardCounter');
@@ -79,4 +78,12 @@ var typed2 = new Typed('.domain_text', {
     loop: true,
   cursorChar:true
 });
+
+
+
+
+  // navbar 
+
  
+
+    

@@ -1,5 +1,6 @@
  var User = require('../../models/auth');
  const bcrypt = require('bcrypt');
+const passport = require('passport');
 function factoryAuth (){
      return {
 
@@ -42,9 +43,8 @@ function factoryAuth (){
               }).catch((err)=>{
         
                 req.flash("wrong", "Something is wrong ");
-                console.log(err)
+                console.log(err);
                 return res.redirect('/register');
-
          
               });
 
@@ -58,7 +58,43 @@ function factoryAuth (){
                    
          loginRoutes(req,res){
             res.render('auth/login')
+
       },
+
+      postloginRoutes(req,res, next){
+             passport.authenticate('local', (err, user , info)=>{
+               if(err){
+                 req.flash('wrong',info.message)
+                 return next(err);
+               }
+
+
+               if(!user){
+                   req.flash('wrong',info.message)
+                return res.redirect('/login');
+               }
+
+
+               req.logIn(user,(err)=>{
+                 if(err){ 
+                 req.flash('wrong', info.message);
+                 return next(err)
+              }
+
+
+                return res.redirect('/');
+
+
+            })
+
+             })(req, res, next)
+      },
+
+      logout(req,res){ 
+        req.logout();
+        return res.redirect('/login');
+      }
+
      }
 }
 
